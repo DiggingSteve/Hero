@@ -61,6 +61,9 @@ var AppComponent = (function () {
             name: 'Test'
         };
     }
+    AppComponent.prototype.onSelect = function (hero) {
+        this.selectedHero = hero;
+    };
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["U" /* Component */])({
             selector: 'app-root',
@@ -167,7 +170,7 @@ module.exports = ".selected {\r\n  background-color: #CFD8DC !important;\r\n  co
 /***/ 608:
 /***/ (function(module, exports) {
 
-module.exports = "<h1>{{title}}</h1>\r\n<h2>{{hero.name}} details!</h2>\r\n<div><label>id: </label>{{hero.id}}</div>\r\n<div>\r\n  <label>name: </label>\r\n  <input [(ngModel)]=\"hero.name\" placeholder=\"name\">\r\n \r\n</div>\r\n<div>\r\n  <h2>My Heroes</h2>\r\n  <ul class=\"heroes\">\r\n    <li *ngFor=\"let hero of heroes\">\r\n      <span class=\"badge\">{{hero.id}}</span> {{hero.name}}\r\n    </li>\r\n  </ul>\r\n</div>"
+module.exports = "<h1>{{title}}</h1>\r\n<h2>双向绑定{{hero.name}} details!</h2>\r\n<div><label>id: </label>{{hero.id}}</div>\r\n\r\n<div>\r\n  <label>name: </label>\r\n  <input [(ngModel)]=\"hero.name\" placeholder=\"name\">\r\n \r\n</div>\r\n<div>\r\n  \r\n  <h2 *ngIf=\"selectedHero\"> 选中了{{selectedHero.name}} （点击事件）</h2>\r\n  <ul class=\"heroes\">\r\n    <li *ngFor=\"let hero of heroes\"(click)=\"onSelect(hero)\" [class.selected]=\"hero === selectedHero\">\r\n      <span class=\"badge\">{{hero.id}}</span> {{hero.name}}\r\n    </li>\r\n  </ul>\r\n</div>"
 
 /***/ }),
 

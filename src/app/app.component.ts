@@ -8,10 +8,14 @@
 export class AppComponent {
     title = 'Tour of Heroes';
     heroes = HEROES;//英雄数组
+    selectedHero: Hero;
     hero: Hero = {
         id: 1,
         name: 'Test'
     };
+    onSelect(hero: Hero): void {
+        this.selectedHero = hero;
+    }
 }
 
 export class Hero {
