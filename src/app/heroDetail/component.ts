@@ -1,12 +1,12 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component,Input } from '@angular/core';
+import { Hero } from "./hero";
+
 
 @Component({
-    selector: 'home',
-    templateUrl: './component.html'
-    
+    selector: 'hero-detail',
+    templateUrl:'component.html'
 })
-export class HomeComponent {
-    title = "首页";
-    date = "dsd";
+export class HeroDetailComponent {
+    @Input() hero: Hero//输入属性,接收来自主视图的selectedHero
 
 }
